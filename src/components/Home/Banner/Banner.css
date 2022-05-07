@@ -1,0 +1,12 @@
+*{
+    margin:0;
+    padding:0;
+}
+#banner-img{
+    background-image:linear-gradient(to right, rgba(50, 70, 80, 0.7), rgba(30, 20, 150, 0.7)), url('https://img.freepik.com/free-photo/motorcycle-with-helmet_23-2148875785.jpg?size=626&ext=jpg&ga=GA1.2.265099126.1651845603');
+    height:75vh;
+    background-size:cover;
+    background-position: center;
+    position:relative;
+    bottom:1rem;
+}
