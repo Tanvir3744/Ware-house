@@ -10,3 +10,7 @@
     position:relative;
     bottom:1rem;
 }
+/* banner text alignment with css */
+#banner-text{
+    margin-top:100px !important;
+}
