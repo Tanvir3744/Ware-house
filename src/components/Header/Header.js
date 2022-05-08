@@ -18,8 +18,8 @@ export default function Header() {
     return (
         <MDBNavbar expand='lg' light bgColor='light'>
             <MDBContainer fluid className='p-3'>
-                <MDBNavbarBrand href='#'>
-                    <img src={logo} alt="" className="img-fluid" width={200} />
+                <MDBNavbarBrand >
+                    <Link to='/'><img src={logo} alt="" className="img-fluid" width={200} /></Link>
                 </MDBNavbarBrand>
                 <MDBNavbarToggler
                     aria-expanded='false'
