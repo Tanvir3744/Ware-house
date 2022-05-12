@@ -7,7 +7,7 @@ const Register = () => {
             <div className="container">
                 <div className="row">
                     <div className="col-lg-7 w-75 mx-auto">
-                        <h2 className='mt-3 '>Log In To Get Started</h2>
+                        <h2 className='mt-3 '>Register To Be With Us</h2>
                         <form className='mt-4 mb-4 bg-light shadow rounded p-4'>
                             <MDBInput className='mt-3' label='Username' id='typeName' type='text' name='username' required />
                             <MDBInput className='mt-3' label='Enter Email' name='email' id='typeEmail' type='email' required />
