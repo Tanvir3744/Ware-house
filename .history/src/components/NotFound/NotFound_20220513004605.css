@@ -1,0 +1,9 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* styling notfound page fixing minimum height */
+#notFoundHeight {
+  min-height: 65vh;
+}

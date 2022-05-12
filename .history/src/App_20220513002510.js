@@ -11,7 +11,6 @@ import Blog from './components/Blog/Blog';
 import Footer from './components/Footer/Footer';
 import AddItem from './components/AddItem/AddItem';
 import ManageItem from './components/ManageItem/ManageItem';
-import NotFound from './components/NotFound/NotFound';
 function App() {
   return (
     <div className="App">
@@ -24,7 +23,6 @@ function App() {
         <Route path='/blog' element={<Blog></Blog>}></Route>
         <Route path='/addItem' element={<AddItem></AddItem>}></Route>
         <Route path='/manageItem' element={<ManageItem></ManageItem>}></Route>
-        <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>
     </div>
