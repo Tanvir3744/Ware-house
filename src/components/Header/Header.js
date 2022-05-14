@@ -5,6 +5,7 @@ import {
     MDBNavbarBrand,
     MDBNavbarToggler,
     MDBNavbarNav,
+    MDBBtn,
     MDBCollapse
 } from 'mdb-react-ui-kit';
 import logo from '../../images/logo.png'
@@ -12,7 +13,17 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 import "./Header.css"
+import auth from '../../firebase.init';
+import { signOut } from 'firebase/auth'
+import { useAuthState } from 'react-firebase-hooks/auth'
 export default function Header() {
+    //declaring authstate to get user
+    const [user] = useAuthState(auth);
+    //handle signout for user
+    const logOut = () => {
+        signOut(auth)
+    }
+
     const [showNavSecond, setShowNavSecond] = useState(false);
 
     return (
@@ -32,12 +43,15 @@ export default function Header() {
                     <MDBNavbarNav className='w-75'>
                         <Link className='nav-link' to='/'>Home</Link>
                         <Link className='nav-link' to='/blog'>Blog</Link>
+                        <Link className='nav-link' to='/myItem'>My Item</Link>
+                        <Link className='nav-link' to='/addItem'>Add Item</Link>
+                        <Link className='nav-link' to='/manageItem'>Manage Item</Link>
                     </MDBNavbarNav>
-                        <div className='d-felx flex-end'>
-                            <Link className='btn btn-danger rounded-pill position-relative end-25 w-100 ' to="/login"> Log In</Link>
-                        </div>
+                    {
+                        user ? <MDBBtn onClick={logOut} color='primary' className='rounded-pill'>Log Out</MDBBtn> : <Link to='/login' ><MDBBtn className="rounded-pill" color="danger">Log In</MDBBtn></Link>
+                    }
                 </MDBCollapse>
             </MDBContainer>
         </MDBNavbar>
-    );
+    )
 }

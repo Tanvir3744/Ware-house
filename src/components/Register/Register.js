@@ -1,21 +1,53 @@
 import React from 'react';
 import { MDBInput, MDBBtn } from 'mdb-react-ui-kit';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGoogle, faGithub } from '@fortawesome/free-brands-svg-icons'
+import { useSignInWithGoogle, useSignInWithGithub } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
 const Register = () => {
+    //useNavigate to navigate users
+    const navigate = useNavigate();
+    //sign in method with google for user
+    const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+
+    //sign in method with github for user
+    const [signInWithGithub, user1, loading1, error1] = useSignInWithGithub(auth);
+
+    //navigate to login page
+    const navigateLogin = () => {
+        navigate('/login')
+    }
+
+    //creating registration which is based on name, email and password
+    const handleRegister = event => {
+        event.preventDefault();
+        console.log(event.target.username.value, event.target.email.value, event.target.password1.value, event.target.password2.value)
+    }
     return (
         <div>
             <div className="container">
                 <div className="row">
                     <div className="col-lg-7 w-75 mx-auto">
-                        <h2 className='mt-3 '>Log In To Get Started</h2>
-                        <form className='mt-4 mb-4 bg-light shadow rounded p-4'>
-                            <MDBInput className='mt-3' label='Username' id='typeName' type='text' name='username' required />
-                            <MDBInput className='mt-3' label='Enter Email' name='email' id='typeEmail' type='email' required />
-                            <MDBInput className='mt-3' label='Password' id='typePassword' type='password' name='password1' />
-                            <MDBInput className='mt-3' label='Confirm Password' id='typePassword' type='password' name='password2' />
-                            <Link className='mt-3' to='/login'>Don't Have An Account? Register</Link><br />
-                            <MDBBtn className='rounded-pill mt-3' type='submit' color="danger ">Register</MDBBtn>
-                        </form>
+                        <h2 className='mt-3 '>Register To Get Started</h2>
+                        <div className='bg-light shadow rounded p-4 mb-3'>
+                            <form className='mt-4 mb-4' onSubmit={handleRegister}>
+                                <MDBInput className='mt-3' label='Username' id='typeName' type='text' name='username' required />
+                                <MDBInput className='mt-3' label='Enter Email' name='email' id='typeEmail' type='email' required />
+                                <MDBInput className='mt-3' label='Password' id='typePassword' type='password' name='password1' />
+                                <MDBInput className='mt-3' label='Confirm Password' id='typePassword' type='password' name='password2' />
+                                <Link className='mt-3' onClick={navigateLogin} to='/login'>Already Have An Account? Login</Link><br />
+                                <MDBBtn className='rounded-pill mt-3' type='submit' color="danger ">Register</MDBBtn>
+                            </form>
+                            <div className="d-grid gap-2 mt-3 col-6 mx-auto">
+                                <MDBBtn onClick={() => signInWithGoogle()} color='primary' className='d-flex align-items-center justify-content-center'>
+                                    <FontAwesomeIcon className='me-2 fs-5' icon={faGoogle}></FontAwesomeIcon> Contineue With Google</MDBBtn>
+                                <MDBBtn color='danger' onClick={() => signInWithGithub()}>
+                                    <FontAwesomeIcon className='me-2 fs-6 ' icon={faGithub}></FontAwesomeIcon>
+                                    contineue with github
+                                </MDBBtn>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
