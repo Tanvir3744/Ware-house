@@ -4,6 +4,7 @@ import { MDBCard, MDBCardTitle, MDBCardText, MDBCardBody, MDBCardImage, MDBRow, 
 import { Link, useNavigate } from 'react-router-dom';
 const ItemCard = (props) => {
     const { _id, name, img, price, supplier, quantity } = props.product;
+    console.log(_id)
 
     //naviagating to the datail page of this website
     const navigate = useNavigate()

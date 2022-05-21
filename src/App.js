@@ -13,30 +13,32 @@ import AddItem from './components/AddItem/AddItem';
 import ManageItem from './components/ManageItem/ManageItem';
 import NotFound from './components/NotFound/NotFound';
 import MyItem from './components/MyItem/MyItem';
-import RequireAuth from './components/RequireAuth/RequireAuth';
+import Detail from './components/Detail/Detail';
+import RequireAuth from './components/RequireAuth/RequireAuth.js'
 function App() {
   return (
     <div className="App">
       <Header></Header>
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
-        <Route path='/home' element={<Home></Home>}></Route>
-        <Route path="/register" element={<Register></Register>}></Route>
-        <Route path='/login' element={<Login></Login>}></Route>
-        <Route path='/blog' element={<Blog></Blog>}></Route>
-        <Route path='/addItem' element={
-          <RequireAuth>
-            <AddItem></AddItem>
-          </RequireAuth>
-        }></Route>
-        <Route path='/manageItem' element={
+        <Route path='home' element={<Home></Home>}></Route>
+        <Route path="register" element={<Register></Register>}></Route>
+        <Route path='login' element={<Login></Login>}></Route>
+        <Route path='blog' element={<Blog></Blog>}></Route>
+        <Route path='addItem' element={<RequireAuth><AddItem /></RequireAuth>} />
+        <Route path='manageItem' element={
           <RequireAuth>
             <ManageItem></ManageItem>
           </RequireAuth>
         }></Route>
-        <Route path='/myItem' element={
+        <Route path='myItem' element={
           <RequireAuth>
             <MyItem></MyItem>
+          </RequireAuth>
+        }></Route>
+        <Route path='details/:id' element={
+          <RequireAuth>
+            <Detail></Detail>
           </RequireAuth>
         }></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
