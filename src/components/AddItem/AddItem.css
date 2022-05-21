@@ -1,0 +1,9 @@
+*{
+    margin:0;
+    padding:0;
+}
+
+/* adding minimum height to the ui */
+#add-item-id{
+    min-height: 70vh;
+}

@@ -5,7 +5,6 @@ import { useParams } from 'react-router-dom';
 const Detail = () => {
     const { id } = useParams()
     const [products, setProducts] = useState({});
-    console.log(products.name, products.price, products.quantity)
     useEffect(() => {
         let url = `http://localhost:5000/item/${ id }`
         fetch(url)
@@ -35,6 +34,9 @@ const Detail = () => {
                 alert("added succesfylly")
             })
     }
+
+    /* handle deliver button to decrease the quantity of item */
+    
     return (
         <div className='container'>
             <div className="row d-flex align-items-center gx-3 mt-3 mb-3">
