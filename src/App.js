@@ -15,6 +15,7 @@ import NotFound from './components/NotFound/NotFound';
 import MyItem from './components/MyItem/MyItem';
 import Detail from './components/Detail/Detail';
 import RequireAuth from './components/RequireAuth/RequireAuth.js'
+import Update from './components/Update/Update';
 function App() {
   return (
     <div className="App">
@@ -41,6 +42,7 @@ function App() {
             <Detail></Detail>
           </RequireAuth>
         }></Route>
+        <Route path='/update' element={<RequireAuth><Update></Update></RequireAuth>}></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>

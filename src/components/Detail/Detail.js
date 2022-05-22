@@ -16,7 +16,7 @@ const Detail = () => {
     const handleRestock = (event) => {
         event.preventDefault();
         let qty = parseInt(event.target.restock.value);
-        let newQty = products.quantity + qty;
+        let newQty =parseInt( products.quantity) + qty;
         let updateQuantity = {quantity: newQty }
         console.log(updateQuantity)
 
