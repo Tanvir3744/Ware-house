@@ -22,7 +22,7 @@ const AddItem = () => {
             supplier: supplier
         }
 
-        const url = `http://localhost:5000/allItems`;
+        const url = `https://peaceful-plains-32871.herokuapp.com/myItems`;
         fetch(url, {
             method: 'POST',
             headers: {

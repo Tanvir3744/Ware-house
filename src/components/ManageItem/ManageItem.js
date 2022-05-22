@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const ManageItem = () => {
     const [manageProduct, setManageProduct] = useState([])
     useEffect(() => {
-        const url = `http://localhost:5000/allItems`;
+        const url = `https://peaceful-plains-32871.herokuapp.com/allItems`;
         fetch(url)
             .then(response => response.json())
             .then(data => setManageProduct(data))

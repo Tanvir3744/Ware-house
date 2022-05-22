@@ -6,7 +6,7 @@ const Detail = () => {
     const { id } = useParams()
     const [products, setProducts] = useState({});
     useEffect(() => {
-        let url = `http://localhost:5000/item/${ id }`
+        let url = `https://peaceful-plains-32871.herokuapp.com/item/${id}`
         fetch(url)
             .then(response => response.json())
             .then(data => setProducts(data));
@@ -21,7 +21,7 @@ const Detail = () => {
         console.log(updateQuantity)
 
 
-        fetch(`http://localhost:5000/item/${id}`, {
+        fetch(`https://peaceful-plains-32871.herokuapp.com/item/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',
