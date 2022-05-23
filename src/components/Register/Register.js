@@ -61,7 +61,6 @@ const Register = () => {
             return;
         }
 
-        event.target.reset();
     }
 
 
@@ -81,8 +80,8 @@ const Register = () => {
                                 <small className="text-danger">{validation}</small>
                                 <MDBInput className='mt-3' label='Confirm Password' id='typePassword' type='password' name='password2' required />
                                 <small className="text-danger">{validation}</small>
-                                <Link className='mt-3' onClick={navigateLogin} to='/login'>Already Have An Account? Login</Link><br />
-                                <MDBBtn color='danger' className='rounded rounded-pill mt-3'>Register</MDBBtn>
+                                <Link className='mt-3'  to='/login'>Already Have An Account? Login</Link><br />
+                                <MDBBtn color='danger' onClick={navigateLogin} className='rounded rounded-pill mt-3'>Register</MDBBtn>
                             </form>
 
                             {/* social login buttons */}

@@ -34,7 +34,7 @@ const ItemCard = (props) => {
                     </MDBCol>
                     <div className='d-flex align-items-center justify-content-center p-2'>
                         <MDBBtn onClick={() => navigateDetail(_id)} className='btn btn-primary ripple rounded-pill mx-2'>Show Details</MDBBtn>
-                        <Link className='btn btn-danger ripple rounded-pill' to="/update">Update</Link>
+        
                     </div>
                 </MDBRow>
             </MDBCard>
