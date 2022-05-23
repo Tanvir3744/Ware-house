@@ -10,9 +10,7 @@ const Register = () => {
     const [validation, setValidation] = useState('');
 
     //declaring states to reset forms
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
-    const [confirm, setConfirm] = useState('');
+   
 
     //useNavigate to navigate users
     const navigate = useNavigate();
@@ -49,12 +47,21 @@ const Register = () => {
         //handle password validation
         if (password1.length < 6) {
             setValidation('your password should be 6 or more digit or character')
+            return;
         }
 
         if (password1 !== password2) {
             setValidation('your password should be matched with each other')
+            return;
         }
 
+        //username validation
+        if (username === '') {
+            setValidation('username cannot be empty')
+            return;
+        }
+
+        event.target.reset();
     }
 
 

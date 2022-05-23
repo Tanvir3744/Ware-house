@@ -34,7 +34,7 @@ const Login = () => {
     }
 
     if (user || user1) {
-        navigate(from, { replace: true })
+        navigate(from, { replace: true } || '/')
     }
 
     //navigate to register

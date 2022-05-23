@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import ItemCard from '../../ItemCard/ItemCard';
 
 const Items = () => {
@@ -19,6 +20,7 @@ const Items = () => {
                     products.map(product => <ItemCard key={products._id} product={product}></ItemCard>)
                 }
             </div>
+            <Link className='btn btn-primary ripple mt-3 mb-2' to='/manageItem'>Manage Invetory</Link>
         </div>
     );
 };
