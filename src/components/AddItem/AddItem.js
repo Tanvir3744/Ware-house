@@ -1,6 +1,12 @@
 import React from 'react';
 import { MDBBtn, MDBInput, MDBTextArea } from 'mdb-react-ui-kit'
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
 const AddItem = () => {
+    /* getting the users email from auth state */
+    const [user] = useAuthState(auth)
 
     /* handling add product */
     const handleAddProduct = (event) => {
@@ -19,7 +25,8 @@ const AddItem = () => {
             price: price,
             description: shortDescription,
             quantity: quantity,
-            supplier: supplier
+            supplier: supplier,
+            user: user.email,
         }
 
         const url = `https://peaceful-plains-32871.herokuapp.com/myItems`;
@@ -33,7 +40,8 @@ const AddItem = () => {
             .then(response => response.json())
             .then(data => {
                 console.log(data)
-                alert('successfully added')
+                toast('successfully added')
+                event.target.reset();
         })
     }
     return (

@@ -1,11 +1,28 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
+import MyItemCard from '../MyItemCard/MyItemCard';
 
 const MyItem = () => {
+    const [myItems, setMyItems] = useState([])
+
+    //getting email to show my items based on email
+    const [user] = useAuthState(auth)
+    useEffect(() => {
+        const email = user.email;
+        const url = `https://peaceful-plains-32871.herokuapp.com/myItem?email=${email}`;
+        fetch(url)
+            .then(response => response.json())
+            .then(data => setMyItems(data));
+    },[user])
     return (
-        <div>
-            <h1> hello! this is my item page</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia molestiae corrupti modi eveniet, delectus, quae praesentium pariatur nisi nihil magnam consectetur voluptatem.</p>
-        </div>
+            <div className="container mt-5 mb-6">
+                <div className="row">
+                    {
+                        myItems.map(myitem => <MyItemCard key={myitem._id} myitem ={myitem}></MyItemCard>)
+                    }
+                </div>
+            </div>
     );
 };
 
